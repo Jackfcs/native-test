@@ -1,4 +1,4 @@
-import { StatusBar } from "expo-status-bar";
+//import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
   StyleSheet,
@@ -9,7 +9,11 @@ import {
   TouchableOpacity,
   Button,
   Alert,
+  StatusBar,
+  Platform,
+  SafeAreaView
 } from "react-native";
+import Child from "./Child";
 
 export default function App() {
   const handlePress = () => {
@@ -43,43 +47,26 @@ export default function App() {
 
   //iOS only
   const promptMe = () => {
-    Alert.prompt("Prompt Title", "Prompt Message", text => console.log(text));
+    Alert.prompt("Prompt Title", "Prompt Message", (text) => console.log(text));
   };
-    
-  
 
   return (
     <View style={styles.container}>
       <Button color="purple" title="Click Button" onPress={promptMe} />
-      <StatusBar style="dark" />
+
+      <Child />
+
+      
     </View>
-    // <View style={styles.container}>
-    //   <Text numberOfLines={1} onPress={handlePress}>
-    //     Open up App.js
-    //   </Text>
-    //   <TouchableOpacity>
-    //     <Image
-    //       source={{
-    //         width: 200,
-    //         height: 300,
-    //         uri: "https://picsum.photos/200/300",
-    //       }}
-    //     />
-    //   </TouchableOpacity>
-    //   <TouchableNativeFeedback >
-    //     <View style={{width: 200, height: 70, backgroundColor: "dodgerblue"}}>
-    //     </View>
-    //   </TouchableNativeFeedback>
-    //   <StatusBar style="dark" />
-    // </View>
   );
 }
 
+const margin = { margin: 10 };
+const boxStyle = { width: 200, height: 70, backgroundColor: "dodgerblue" };
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
