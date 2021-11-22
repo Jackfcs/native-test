@@ -1,23 +1,20 @@
-import React from 'react';
+import React from "react";
 import {
-    StyleSheet,
-    Text,
-    View,
-    Image,
-    TouchableNativeFeedback,
-    TouchableOpacity,
-    Button,
-    Alert,
-  } from "react-native";
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableNativeFeedback,
+  TouchableOpacity,
+  Button,
+  Alert,
+  Dimensions,
+} from "react-native";
 
 function Child() {
-    return (
-        <View>
-            <Text>
-            Test
-            </Text>
-        </View>
-    )
+  return (
+    <View></View>
+  );
 }
 
-export default Child
+export default Child;

@@ -11,17 +11,22 @@ import {
   Alert,
   StatusBar,
   Platform,
-  SafeAreaView
+  SafeAreaView,
 } from "react-native";
 import Child from "./Child";
+import { useDimensions, useDeviceOrientation } from "@react-native-community/hooks";
 
 export default function App() {
   const handlePress = () => {
     console.log("pressed");
   };
 
+  //Using device orientation with native hooks
+  const {landscape} = useDeviceOrientation();
+
   let value = 1;
 
+  //Alert API
   const alertMe = () => {
     console.log(value);
 
@@ -45,18 +50,18 @@ export default function App() {
     ]);
   };
 
-  //iOS only
+  //Prompts - iOS only
   const promptMe = () => {
     Alert.prompt("Prompt Title", "Prompt Message", (text) => console.log(text));
   };
 
   return (
     <View style={styles.container}>
-      <Button color="purple" title="Click Button" onPress={promptMe} />
+      <Button color="purple" title="Click Button" onPress={alertMe} />
 
-      <Child />
-
-      
+      <View
+      style={{ backgroundColor: "dodgerblue", width: "100%", height: landscape ? "100%" : "30%" }}
+    ></View>
     </View>
   );
 }
