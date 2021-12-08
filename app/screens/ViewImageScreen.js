@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         height: 50,
         backgroundColor: colors.secondary,
         position: "absolute",
-        top: 40,
+        top: 30,
         right: 30
     },
     container: {
